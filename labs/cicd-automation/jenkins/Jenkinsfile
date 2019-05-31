@@ -1,7 +1,7 @@
 def  appName = 'service-tracker-ui'
 def  feSvcName = "${appName}"
 def  ACRPATH = 'hackfest'
-def  ACRNAME = 'tugboatlabs'
+def  ACRNAME = 'acrhackfestrbravo25748'
 def  ACRURL = 'azurecr.io'
 def  imageTag = "${env.BRANCH_NAME}.${env.BUILD_NUMBER}"
 
@@ -40,7 +40,6 @@ spec:
   }
   stages {
 
-    
     stage('Build Container and Push to Registry') {
       steps {
         container('azurecli') {
@@ -52,7 +51,7 @@ spec:
       }
      }
     }
-    
+
     stage('Deploy To Production') {
       // Production branch
       steps{
@@ -66,4 +65,4 @@ spec:
     }
   }
 }
- 
+
